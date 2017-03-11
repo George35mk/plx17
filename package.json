@@ -1,0 +1,19 @@
+{
+  "name": "parallax3d",
+  "version": "1.0.0",
+  "description": "parallax3d description",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/George35mk/plx17.git"
+  },
+  "author": "George35mk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/George35mk/plx17/issues"
+  },
+  "homepage": "https://github.com/George35mk/plx17#readme"
+}
