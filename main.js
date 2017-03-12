@@ -67,7 +67,7 @@ function createDefaultWindow() {
   win.on('closed', () => {
     win = null;
   });
-  win.loadURL(`file://${__dirname}/version.html#v${app.getVersion()}`);
+  win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
   // win.loadURL(`file://${__dirname}/index.html`);
   win.webContents.openDevTools();
   return win;
@@ -77,9 +77,11 @@ autoUpdater.on('checking-for-update', () => {
 })
 autoUpdater.on('update-available', (ev, info) => {
   sendStatusToWindow('Update available.');
+  console.log('update-available');
 })
 autoUpdater.on('update-not-available', (ev, info) => {
   sendStatusToWindow('Update not available.');
+  console.log('update-not-available');
 })
 autoUpdater.on('error', (ev, err) => {
   sendStatusToWindow('Error in auto-updater.');
