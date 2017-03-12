@@ -59,12 +59,17 @@ function sendStatusToWindow(text) {
   win.webContents.send('message', text);
 }
 function createDefaultWindow() {
-  win = new BrowserWindow();
-  win.webContents.openDevTools();
+  win = new BrowserWindow({
+    width:800,
+    height: 700
+  });
+  // win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
   });
   win.loadURL(`file://${__dirname}/version.html#v${app.getVersion()}`);
+  // win.loadURL(`file://${__dirname}/index.html`);
+  win.webContents.openDevTools();
   return win;
 }
 autoUpdater.on('checking-for-update', () => {
@@ -87,8 +92,8 @@ autoUpdater.on('update-downloaded', (ev, info) => {
 });
 app.on('ready', function() {
   // Create the Menu
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
+  // const menu = Menu.buildFromTemplate(template);
+  // Menu.setApplicationMenu(menu);
 
   createDefaultWindow();
 });
