@@ -1,6 +1,6 @@
 {
   "name": "parallax3d",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "parallax3d description",
   "main": "main.js",
   "scripts": {
