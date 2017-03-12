@@ -16,7 +16,8 @@
     "win": {
       "certificateFile": "cert/Soske.pfx",
       "certificatePassword": "Test123"
-    }
+    },
+    "appId": "parallaxApp.id"
   },
 
   "repository": {

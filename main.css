@@ -1,8 +1,15 @@
 Body{
   background: dodgerblue;
   font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
 
 h1, h5 {
   color: white;
+}
+
+h1{
+
+  margin-top: 20%;
+  font-size: 100px;
 }
