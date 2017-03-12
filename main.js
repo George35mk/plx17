@@ -43,8 +43,3 @@ switch (squirrelCommand) {
 }
 
 
-// var remote = require('remote'); 
-// var win = remote.getCurrentWindow();
-// win.webContents.session.clearCache(function(){
-// //some callback.
-// });
