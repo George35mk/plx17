@@ -10,13 +10,14 @@
   },
   "build": {
     "squirrelWindows": {
-      "remoteReleases": "http://localhost:9000/dist/win1/"
+      "remoteReleases": "https://github.com/George35mk/plx17"
     },
     "win": {
       "certificateFile": "cert/Soske.pfx",
       "certificatePassword": "Test123"
     },
     "appId": "parallaxApp.id",
+    "productName": "Parallax3D",
 
     "publish": [{
         "provider": "github",
