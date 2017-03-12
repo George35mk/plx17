@@ -8,21 +8,25 @@
     "build": "build --win",
     "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=recurces/icons/win/001-pie-chart.ico --prune=false --out=release-builds --version-string.CompanyName=Parallax3D.inc --version-string.FileDescription=parallax3D_1.0.0"
   },
+
   "build": {
+
     "squirrelWindows": {
-      "remoteReleases": "http://localhost:9000/dist/win1/"
+      "remoteReleases": "https://github.com/George35mk/plx17"
     },
     "win": {
       "certificateFile": "cert/Soske.pfx",
       "certificatePassword": "Test123"
     },
     "appId": "parallaxApp.id",
+    "productName": "Parallax3D",
 
     "publish": [{
         "provider": "github",
         "owner": "George35mk",
         "repo": "plx17"
     }]
+    
   },
   "repository": {
     "type": "git",
