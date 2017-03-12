@@ -10,7 +10,7 @@ const createWindow = () => {
     width: 800, 
     height: 600, 
     visible: true,
-    icon: __dirname + 'recurces/icon.ico'
+    icon: __dirname + 'build/icon.ico'
   });
 
   mainWindow.loadURL(`file://${__dirname}/index.html`);
@@ -22,9 +22,9 @@ const createWindow = () => {
   })
 }
 
-app.on('ready', createWindow);
+app.on('ready', createWindow)
 app.on('window-all-closed', () => {
-  app.quit();
+  app.quit()
 });
 
 app.on('activate', () => {
@@ -41,3 +41,10 @@ switch (squirrelCommand) {
     app.quit();
   return true;
 }
+
+
+// var remote = require('remote'); 
+// var win = remote.getCurrentWindow();
+// win.webContents.session.clearCache(function(){
+// //some callback.
+// });
