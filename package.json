@@ -1,6 +1,6 @@
 {
   "name": "parallax3d",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "parallax3d description",
   "main": "main.js",
   "scripts": {
@@ -16,7 +16,13 @@
       "certificateFile": "cert/Soske.pfx",
       "certificatePassword": "Test123"
     },
-    "appId": "parallaxApp.id"
+    "appId": "parallaxApp.id",
+
+    "publish": [{
+        "provider": "github",
+        "owner": "George35mk",
+        "repo": "electron-updater-example"
+    }]
   },
   "repository": {
     "type": "git",
