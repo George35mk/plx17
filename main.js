@@ -1,18 +1,38 @@
-
 const electron = require('electron');
-const {app, BrowserWindow} = electron;
+const app = electron.app;
+const BrowserWindow = electron.BrowserWindow;
 
 
+let mainWindow;
 
+const createWindow = () => {
+  mainWindow = new BrowserWindow({ width: 800, height: 600, visible: true});
 
-app.on('ready', () => {
-  let win = new BrowserWindow({
-    width:800,
-    height: 600
-    // icon: __dirname + '/resurces/icons/001-credit-card.ico'
-  });
-  win.loadURL(`file://${__dirname}/index.html`);
-  win.webContents.openDevTools();
-  //  win.setMenu(null); //afto kanei hide to menu bar
+  mainWindow.loadURL(`file://${__dirname}/index.html`);
 
+  mainWindow.webContents.openDevTools();
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  })
+}
+
+app.on('ready', createWindow);
+app.on('window-all-closed', () => {
+  app.quit();
 });
+
+app.on('activate', () => {
+  if (mainWindow === null) {
+    createWindow();
+  }
+})
+
+const squirrelCommand = process.argv[1];
+switch (squirrelCommand) {
+  case '--squirrel-install':
+  case '--squirrel-updated':
+  case '--squirrel-obsolete':
+    app.quit();
+  return true;
+}
