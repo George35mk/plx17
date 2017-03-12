@@ -1,6 +1,6 @@
 {
   "name": "isometric3d",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "main.js",
   "description": "isometric3D example project",
   "author": "Georgios Chatoutsidis",
@@ -28,7 +28,11 @@
     "win": {
       "category": "your.app.category.type",
       "certificateFile": "cert/Soske.pfx",
-      "certificatePassword": "Test123"
+      "certificatePassword": "Test123",
+      "target": [
+        "zip",
+        "nsis"
+      ]
     },
     
     "publish": [
