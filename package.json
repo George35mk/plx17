@@ -5,8 +5,20 @@
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
+    "build": "build --win",
     "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=recurces/icons/win/001-pie-chart.ico --prune=false --out=release-builds --version-string.CompanyName=Parallax3D.inc --version-string.FileDescription=parallax3D_1.0.0"
   },
+
+  "build": {
+    "squirrelWindows": {
+      "remoteReleases": "http://localhost:9000/dist/win1/"
+    },
+    "win": {
+      "certificateFile": "cert/Soske.pfx",
+      "certificatePassword": "Test123"
+    }
+  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/George35mk/plx17.git"
@@ -18,6 +30,7 @@
   },
   "homepage": "https://github.com/George35mk/plx17#readme",
   "devDependencies": {
-    "electron": "^1.6.2"
+    "electron": "^1.6.2",
+    "electron-builder": "^15.3.0"
   }
 }
