@@ -68,6 +68,7 @@ function createDefaultWindow() {
     win = null;
   });
   win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
+  console.log(app.getVersion());
   // win.loadURL(`file://${__dirname}/index.html`);
   win.webContents.openDevTools();
   return win;
