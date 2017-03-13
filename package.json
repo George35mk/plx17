@@ -1,6 +1,6 @@
 {
   "name": "isometric3d",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "main.js",
   "description": "isometric3D example project",
   "author": "Georgios Chatoutsidis",
@@ -33,6 +33,12 @@
         "zip",
         "nsis"
       ]
+    },
+
+    "nsis": {
+      "oneClick": true,
+      "perMashine": true,
+      "include": "build/windows_license.txt"
     },
     
     "publish": [
