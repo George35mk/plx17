@@ -1,6 +1,6 @@
 {
   "name": "isometric3d",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "main.js",
   "description": "isometric3D example project",
   "author": "Georgios Chatoutsidis",
@@ -23,6 +23,7 @@
 
   "build": {
 
+
     "appId": "com.github.george35mk.isometric3DUpdaterexample",
     "productName": "isometric3D",
 
@@ -31,7 +32,6 @@
       "certificateFile": "cert/Soske.pfx",
       "certificatePassword": "Test123",
       "target": [
-        "zip",
         "nsis"
       ]
     },
