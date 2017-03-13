@@ -65,8 +65,12 @@ function sendStatusToWindow(text) {
 
 function createDefaultWindow() {
   win = new BrowserWindow({
-    width:800,
-    height: 700
+    width:1100,
+    height: 733,
+    minWidth: 1100,
+    minHeight: 733,
+    // 'auto-hide-menu-bar': true,
+    center: true
   });
   // win.webContents.openDevTools();
   win.on('closed', () => {
@@ -75,7 +79,7 @@ function createDefaultWindow() {
   win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
   console.log(app.getVersion());
   // win.loadURL(`file://${__dirname}/index.html`);
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
   return win;
 }
 

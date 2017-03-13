@@ -1,6 +1,6 @@
 {
   "name": "isometric3d",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "main": "main.js",
   "description": "isometric3D example project",
   "author": "Georgios Chatoutsidis",
@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "electron-log": "^1.3.0",
-    "electron-updater": "^1.4.2"
+    "electron-updater": "^1.4.2",
+    "firebase": "^3.7.0"
   },
 
   "scripts": {
@@ -22,7 +23,6 @@
   },
 
   "build": {
-
 
     "appId": "com.github.george35mk.isometric3DUpdaterexample",
     "productName": "isometric3D",
