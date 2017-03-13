@@ -43,3 +43,16 @@ function getTheVersion (arguments) {
 
 
 
+// var b = document.getElementById('');
+
+// Initiate the Tzamia Module
+var $ = jQuery;
+
+var mod = require('./module');
+mod.init($);
+
+
+
+$( "#push" ).click(function() {
+    mod.alertFromModule();
+});
