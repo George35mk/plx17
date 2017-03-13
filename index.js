@@ -1,3 +1,15 @@
+// init the select
+$(document).ready(function() {
+
+    $('select').material_select();
+
+
+    // init the modal on new project
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+
+});
+
 const electron = require('electron');
 const BrowserWindow = require('electron').remote.BrowserWindow;
 const app = require('electron').remote.app ;

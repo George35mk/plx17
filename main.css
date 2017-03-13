@@ -1,20 +1,11 @@
-Body{
-  background: dodgerblue;
+
+html, Body{
+  background: white;
   font-family: 'Roboto', sans-serif;
   text-align: center;
+  margin: 0px;
+  padding: 0px;
 }
-
-h1, h5 {
-  color: white;
-}
-
-h1{
-
-  margin-top: 20%;
-  font-size: 100px;
-}
-
-
 
 @keyframes fadein {
   from {
@@ -35,8 +26,74 @@ body {
 
   /* Make sure this matches the native window background color that you pass to
    * electron.BrowserWindow({...}), otherwise your app startup will look janky. */
-  background: dodgerblue;
+  background: #0089ec;
   
   /* Smoother startup */
   animation: fadein 0.5s;
 }
+
+
+
+
+
+
+/* ------------------------------------------------------------------- */
+
+/* ########################## GLOBAL CLASSES HELPERS ########################## */
+
+/* this class hide the element */
+.hidden {
+  display: none;
+}
+
+#welcome_content{
+    width: 100vw;
+    height: 100vh;
+    /*background:  red;*/
+}
+
+#left_container{
+  width: calc(100vw - 300px);
+  height: 100vh;
+  /*background: green;*/
+    background-image: url('Assets/img/mykonos.jpg');
+    background-position:bottom;
+
+}
+
+#right_container{
+  width: 300px;
+  height: 100vh;
+}
+
+#form_container{
+  width: 100%;
+}
+
+#login_form{
+  width: 100%;
+}
+
+#singUp_form{
+  text-align: left;
+  width: 100%;
+}
+
+#singUp_form > .row > .col > .row > .col > .input-field {
+  /*margin-top: 0px;
+  margin-bottom: 0px;*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

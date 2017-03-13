@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,28 +11,33 @@
 
 
   <!-- Insert this line above script imports  -->
-  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+  <script>
+    if (typeof module === 'object') {
+      window.module = module;
+      module = undefined;
+    }
+  </script>
 
   <script src="Assets/Libs/Jquery/jquery-3.1.1.js" type="text/javascript"></script>
-  
+
   <!-- Insert this line after script imports -->
-  <script>if (window.module) module = window.module;</script>
+  <script>
+    if (window.module) module = window.module;
+  </script>
 
-
-  <link rel="stylesheet" href="assets/libs/Materialize/css/materialize.min.css">  
+  <!-- Materialize + Material icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="Assets/Libs/Materialize/css/materialize.min.css">
   <script src="Assets/Libs/Materialize/js/materialize.js" type="text/javascript"></script>
 
   <!-- three js libs-->
-  <!--<script src="../../assets/libs/threejs/three.min.js" type="text/javascript"></script>-->
   <script src="Assets/Libs/Threejs/three.js" type="text/javascript"></script>
   <script src="Assets/Libs/Threejs/OrbitControls.js" type="text/javascript"></script>
   <script src="Assets/Libs/Threejs/OBJLoader.js" type="text/javascript"></script>
   <script src="Assets/Libs/Threejs/MTLLoader.js" type="text/javascript"></script>
   <script src="Assets/Libs/Threejs/DDSLoader.js" type="text/javascript"></script>
-
   <script src="Assets/Libs/Threejs/ThreeCSG.js" type="text/javascript"></script>
   <script src="Assets/Libs/Threejs/CSG.js" type="text/javascript"></script>
-
   <script src="Assets/Libs/StatsJS/Stats.js" type="text/javascript"></script>
   <script src="Assets/Libs/DatGUI/dat.gui.min.js" type="text/javascript"></script>
   <!--<script src="../../assets/libs/DatGUI/dat.gui.css" type="text/javascript"></script>-->
@@ -43,14 +49,209 @@
   <link rel="stylesheet" href="main.css">
 
 </head>
-<body>
-  
-  <h1>Version 2.0.3</h1>
-  <h2>Hello :)</h2>
 
-  <a href="#" id="push" >push</a>
-  
+<body>
+
+
+
+
+  <!-- Authentication content -->
+  <div id="welcome_content" class="">
+
+    <div class="row" style="margin: 0px;">
+
+      <div id="left_container" class="col">
+        <!-- bot nav -->
+        <div class="row" style="position: absolute; bottom: 10px;">
+          <!-- social icons -->
+          <div class="col s12">
+            <img id="go_to_google" style="margin-right: 10px;" width="40" height="40" onclick="redirectToGooglePage(this.id);" src="Assets/icons/social_icons/001-google-plus.svg"
+              alt="">
+            <img id="go_to_twitter" style="margin-right: 10px;" width="40" height="40" onclick="redirectToGooglePage(this.id);" src="Assets/icons/social_icons/002-twitter.svg"
+              alt="">
+            <img id="go_to_youtube" style="margin-right: 10px;" width="40" height="40" onclick="redirectToGooglePage(this.id);" src="Assets/icons/social_icons/003-youtube.svg"
+              alt="">
+            <img id="go_to_facebook" style="margin-right: 10px;" width="40" height="40" onclick="redirectToGooglePage(this.id);" src="Assets/icons/social_icons/004-facebook.svg"
+              alt="">
+          </div>
+          <div class="col s6"></div>
+        </div>
+      </div>
+
+      <div id="right_container" class="col">
+
+        <div class="row">
+          <div class="progress hidden" style="margin: 0px; position: relative">
+            <div class="indeterminate"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="" style="text-align: left;">
+            <h4 style="color: white;  margin-left: 20px;">Isometric 3D</h4>
+          </div>
+        </div>
+
+        <!--<div class="row">
+          <div class="">
+            <img src="Assets/icons/icon-x.ico" width="70px" height="70px;" style="margin-top: 20px;" alt="">
+          </div>
+        </div>-->
+
+
+       
+
+
+
+        <div id="form_container">
+          <!-- Login form -->
+          <div id="login_form" class="col" style="box-shadow:0px; margin-top: 10px; padding: 0px; background: #0089ec;">
+
+            <div class="row" style="text-align: left;">
+              <form class="col s12">
+
+                <div class="row">
+                  <div class="col s12">
+                    <div class="input-field inline" style="width: 100%;">
+                      <input style="color: white;" id="txt_login_email" type="email" maxlength="40" class="validate">
+                      <label style="color: white;" for="txt_login_email" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input style="color: white;" id="txt_login_password" type="password" maxlength="30" class="validate">
+                    <label style="color: white;" for="txt_login_password">Password</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <p style="margin-left: 10px;">
+                    <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                    <label style="color: white;" for="filled-in-box">Remember me.</label>
+                  </p>
+                </div>
+
+                <br>
+                <br>
+
+              </form>
+
+              <!-- action container -->
+              <div class="row">
+                <!-- Login btn -->
+                <a id="btn_log_in" class="waves-effect waves-light btn" style="margin-left: 20px;">ΣΥΝΔΕΣΗ</a>
+                <br>
+                <br>
+                <!-- btn forget password -->
+                <a href="#" id="btn_forget_pass" class="" style="color: white; margin-left: 20px;">Ξέχασες των κωδικό σού ?</a>
+                <br>
+                <br>
+                <!-- btn create ucount -->
+                <a href="#" id="btn_create_ucount" class="" style="color: white; margin-left: 20px;">Δέν έχεις λογαριάσμο ?</a>
+              </div>
+
+              
+
+            </div>
+
+          </div>
+
+          <!-- Register Form -->
+          <div id="singUp_form" class="col hidden" style="margin-top: 30px; padding: 0px;">
+
+            <div class="row">
+              <form class="col s12">
+
+                <!-- fist name -->
+                <div class="row" style="margin-bottom: 0px;">
+                  <div class="col s12">
+                    <div class="input-field inline" style="width: 100%; margin-top: 0px;">
+                      <input style="color: white;" id="txt_sign_in_first_name" type="text" maxlength="30" class="validate">
+                      <label style="color: white;" for="txt_sign_in_first_name" data-error="wrong" data-success="right">First Name</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- last name -->
+                <div class="row" style="margin-bottom: 0px;">
+                  <div class="col s12">
+                    <div class="input-field inline" style="width: 100%;">
+                      <input style="color: white;" id="txt_sign_in_last_name" type="text" maxlength="30" class="validate">
+                      <label style="color: white;" for="txt_sign_in_last_name" data-error="wrong" data-success="right">Last Name</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- email -->
+                <div class="row" style="margin-bottom: 0px;">
+                  <div class="col s12">
+                    <div class="input-field inline" style="width: 100%;">
+                      <input style="color: white;" id="txt_sign_in_email" type="email" maxlength="40" class="validate">
+                      <label style="color: white;" for="txt_sign_in_email" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- password -->
+                <div class="row" style="margin-bottom: 0px;">
+                  <div class="input-field col s12">
+                    <input style="color: white;" id="txt_sign_in_password" type="password" maxlength="30" class="validate">
+                    <label style="color: white;" for="txt_sign_in_password">Password</label>
+                  </div>
+                </div>
+
+                <!-- password again -->
+                <div class="row" style="margin-bottom: 0px;">
+                  <div class="input-field col s12">
+                    <input style="color: white;" id="txt_sign_in_password_again" type="password" maxlength="30" class="validate">
+                    <label style="color: white;" for="txt_sign_in_password_again">Password Again</label>
+                  </div>
+                </div>
+
+              </form>
+
+              <br>
+              <div class="row">
+                
+                <div class="col s6">
+                  <a id="btn_sign_in" class="waves-effect waves-light btn" style="color: white; margin-left: 10px; margin-top: 10px;">SING IN</a>
+                </div>
+                <div class="col s6">
+                  <a id="undo_singUp" class="waves-effect waves-light btn white" style="color: black; margin-right: 0px; margin-top: 10px;">BACK</a>
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+
+      </div>
+
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+  <script src="./Pages/login.js" type="text/javascript"></script>
   <script src="updater.js" type="text/javascript"></script>
   <script src="index.js" type="text/javascript"></script>
 </body>
+
 </html>
