@@ -58,6 +58,7 @@ function sendStatusToWindow(text) {
   log.info(text);
   win.webContents.send('message', text);
 }
+
 function createDefaultWindow() {
   win = new BrowserWindow({
     width:800,
@@ -73,16 +74,17 @@ function createDefaultWindow() {
   win.webContents.openDevTools();
   return win;
 }
+
+
+
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
 })
 autoUpdater.on('update-available', (ev, info) => {
   sendStatusToWindow('Update available.');
-  console.log('update-available');
 })
 autoUpdater.on('update-not-available', (ev, info) => {
   sendStatusToWindow('Update not available.');
-  console.log('update-not-available');
 })
 autoUpdater.on('error', (ev, err) => {
   sendStatusToWindow('Error in auto-updater.');
@@ -93,6 +95,8 @@ autoUpdater.on('download-progress', (ev, progressObj) => {
 autoUpdater.on('update-downloaded', (ev, info) => {
   sendStatusToWindow('Update downloaded; will install in 5 seconds');
 });
+
+
 app.on('ready', function() {
   // Create the Menu
   // const menu = Menu.buildFromTemplate(template);
@@ -125,6 +129,9 @@ app.on('window-all-closed', () => {
 // })
 // autoUpdater.on('download-progress', (ev, progressObj) => {
 // })
+
+
+
 autoUpdater.on('update-downloaded', (ev, info) => {
   // Wait 5 seconds, then quit and install
   // In your application, you don't need to wait 5 seconds.
