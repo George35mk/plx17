@@ -5,6 +5,7 @@
   "description": "isometric3D example project",
   "author": "Georgios Chatoutsidis",
   "license": "MIT",
+  "private": true,
 
   "devDependencies": {
     "electron": "^1.4.15",
@@ -36,9 +37,7 @@
     },
 
     "nsis": {
-      "oneClick": true,
-      "perMashine": true,
-      "include": "build/windows_license.txt"
+      "oneClick": true
     },
     
     "publish": [
