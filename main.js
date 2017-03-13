@@ -1,6 +1,10 @@
 // Copyright (c) The LHTML team
 // See LICENSE for details.
 
+console.time('init');
+
+
+
 const {app, BrowserWindow, Menu, protocol, ipcMain} = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
@@ -144,3 +148,6 @@ autoUpdater.on('update-downloaded', (ev, info) => {
 app.on('ready', function()  {
   autoUpdater.checkForUpdates();
 });
+
+
+console.timeEnd('init');

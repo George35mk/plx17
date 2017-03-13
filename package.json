@@ -31,7 +31,6 @@
       "certificateFile": "cert/Soske.pfx",
       "certificatePassword": "Test123",
       "target": [
-        "zip",
         "nsis"
       ]
     },
