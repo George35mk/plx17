@@ -12,3 +12,4 @@ const os = require('os').platform();
 console.log('The OS is : ' + os); // win32
 console.log('The App Version is : ' + appVersion); // 1.0.0
 
+
