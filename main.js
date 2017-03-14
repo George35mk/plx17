@@ -45,7 +45,7 @@ function createDefaultWindow() {
     // 'auto-hide-menu-bar': true,
     center: true
   });
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
   });
