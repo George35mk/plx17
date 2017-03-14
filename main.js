@@ -1,6 +1,3 @@
-// Copyright (c) The LHTML team
-// See LICENSE for details.
-
 console.time('init');
 
 
@@ -21,30 +18,6 @@ autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
 log.info('App starting...');
 
-//-------------------------------------------------------------------
-// Define the menu
-//
-// THIS SECTION IS NOT REQUIRED
-//-------------------------------------------------------------------
-let template = []
-if (process.platform === 'darwin') {
-  // OS X
-  const name = app.getName();
-  template.unshift({
-    label: name,
-    submenu: [
-      {
-        label: 'About ' + name,
-        role: 'about'
-      },
-      {
-        label: 'Quit',
-        accelerator: 'Command+Q',
-        click() { app.quit(); }
-      },
-    ]
-  })
-}
 
 
 //-------------------------------------------------------------------
@@ -65,10 +38,10 @@ function sendStatusToWindow(text) {
 
 function createDefaultWindow() {
   win = new BrowserWindow({
-    width:1100,
-    height: 733,
-    minWidth: 1100,
-    minHeight: 733,
+    width:800,
+    height: 600,
+    minWidth: 600,
+    minHeight: 400,
     // 'auto-hide-menu-bar': true,
     center: true
   });
@@ -149,9 +122,9 @@ autoUpdater.on('update-downloaded', (ev, info) => {
   }, 5000)
 })
 
-app.on('ready', function()  {
-  autoUpdater.checkForUpdates();
-});
+// app.on('ready', function()  {
+//   autoUpdater.checkForUpdates();
+// });
 
 
 console.timeEnd('init');
