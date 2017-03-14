@@ -45,7 +45,7 @@ function createDefaultWindow() {
     // 'auto-hide-menu-bar': true,
     center: true
   });
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
   win.on('closed', () => {
     win = null;
   });
@@ -117,14 +117,15 @@ autoUpdater.on('update-downloaded', (ev, info) => {
   // Wait 5 seconds, then quit and install
   // In your application, you don't need to wait 5 seconds.
   // You could call autoUpdater.quitAndInstall(); immediately
+
   setTimeout(function() {
-    autoUpdater.quitAndInstall();  
+    // autoUpdater.quitAndInstall();  
   }, 5000)
 })
 
-// app.on('ready', function()  {
-//   autoUpdater.checkForUpdates();
-// });
+app.on('ready', function()  {
+  autoUpdater.checkForUpdates();
+});
 
 
 console.timeEnd('init');
