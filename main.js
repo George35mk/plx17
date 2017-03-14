@@ -122,9 +122,9 @@ autoUpdater.on('update-downloaded', (ev, info) => {
   // }, 5000)
 })
 
-// app.on('ready', function()  {
-//   autoUpdater.checkForUpdates();
-// });
+app.on('ready', function()  {
+  autoUpdater.checkForUpdates();
+});
 
 
 console.timeEnd('init');
