@@ -13,9 +13,7 @@ $(document).ready(function() {
 const electron = require('electron');
 const BrowserWindow = require('electron').remote.BrowserWindow;
 const app = require('electron').remote.app ;
-const autoUpdater = require("electron").remote.autoUpdater;
 
-// console.log(autoUpdater);
 
 
 // const feedURL = 'https://github.com/George35mk/plx17/releases/download/1.0.1/v-1.0.1.zip';
@@ -44,7 +42,7 @@ function getPath (arguments) {
   // app.setPath(name, path);
 }
 
-getPath();
+// getPath();
 // isometric3d
 
 
