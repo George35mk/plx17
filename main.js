@@ -49,16 +49,13 @@ function createDefaultWindow(_width, _height) {
   console.log(_height);
 
   win = new BrowserWindow({ 
-    // show: false,
     backgroundColor: '#2e2c29',
-    // fullscreen: true,
-    // frame : true
     width:800,
     height: 650,
     minWidth: 800,
     minHeight: 650,
     // 'auto-hide-menu-bar': true,
-    // center: true
+    center: true
   });
 
   win.once('ready-to-show', () => {
