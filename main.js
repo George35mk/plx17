@@ -1,7 +1,6 @@
 console.time('init');
 
-
-
+const electron = require('electron');
 const {app, BrowserWindow, Menu, protocol, ipcMain} = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
@@ -42,14 +41,28 @@ function sendStatusToWindow(text) {
   win.webContents.send('message', text);
 }
 
-function createDefaultWindow() {
-  win = new BrowserWindow({
+
+
+function createDefaultWindow(_width, _height) {
+
+  console.log(_width);
+  console.log(_height);
+
+  win = new BrowserWindow({ 
+    // show: false,
+    backgroundColor: '#2e2c29',
+    // fullscreen: true,
+    // frame : true
     width:800,
-    height: 600,
-    minWidth: 600,
-    minHeight: 400,
+    height: 650,
+    minWidth: 800,
+    minHeight: 650,
     // 'auto-hide-menu-bar': true,
-    center: true
+    // center: true
+  });
+
+  win.once('ready-to-show', () => {
+    win.show()
   });
 
   win.webContents.openDevTools();
@@ -116,7 +129,18 @@ autoUpdater.on('update-downloaded', (ev, info) => {
 
 
 app.on('ready', function() {
-  createDefaultWindow();
+
+  // // var screenElectron = electron.screen;
+  // var monitorWidth = screen.width;
+  // var monitorHeight = screen.height;
+
+  // console.log(monitorWidth + "x" + monitorHeight);
+  // // Outputs i.e : 1280x720
+
+
+  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
+
+  createDefaultWindow(width, height);
 });
 
 app.on('window-all-closed', () => {
