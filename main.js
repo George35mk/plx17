@@ -49,20 +49,24 @@ function createDefaultWindow(_width, _height) {
   console.log(_height);
 
   win = new BrowserWindow({ 
-    backgroundColor: '#2e2c29',
-    width:800,
-    height: 650,
+    backgroundColor: '#ffffff',
+    // width:800,
+    // height: 650,
+    show: false,
     minWidth: 800,
     minHeight: 650,
-    // 'auto-hide-menu-bar': true,
+    autoHideMenuBar : true,
     center: true
   });
 
+  
+  win.maximize(true);
   win.once('ready-to-show', () => {
-    win.show()
+    
+    win.show();
   });
 
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 
   win.on('closed', () => {
     win = null;
@@ -72,7 +76,7 @@ function createDefaultWindow(_width, _height) {
   console.log(app.getVersion());
   // win.webContents.openDevTools();
 
-
+  
   // this dialoge open the file explorer
   // dialog.showOpenDialog({ 
   //   properties: [ 'openFile' ] }, function ( filename ) {
