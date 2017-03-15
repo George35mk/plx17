@@ -58,8 +58,7 @@ function createDefaultWindow(_width, _height) {
     autoHideMenuBar : true,
     center: true
   });
-
-  
+ 
   win.maximize(true);
   win.once('ready-to-show', () => {
     
@@ -106,9 +105,6 @@ function createDefaultWindow(_width, _height) {
 
 
 
-
-
-
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
 })
@@ -130,17 +126,7 @@ autoUpdater.on('update-downloaded', (ev, info) => {
 
 
 app.on('ready', function() {
-
-  // // var screenElectron = electron.screen;
-  // var monitorWidth = screen.width;
-  // var monitorHeight = screen.height;
-
-  // console.log(monitorWidth + "x" + monitorHeight);
-  // // Outputs i.e : 1280x720
-
-
   const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-
   createDefaultWindow(width, height);
 });
 
@@ -179,7 +165,6 @@ ipcMain.on('download', (event, arg) => {
   }
 
 });
-
 
 autoUpdater.on('update-not-available', (ev, info) => {
 });
@@ -225,15 +210,6 @@ app.on('ready', function()  {
 
 
 
-
-
-
-
-
-
-
-
-
 // ################# ipcMain #################
 
 
@@ -262,9 +238,6 @@ ipcMain.on('start-the-instalation', (event, arg) => {
 setTimeout(function() {
   
 }, 5000);
-
-
-
 
 
 console.timeEnd('init');
