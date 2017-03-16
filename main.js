@@ -1,7 +1,6 @@
 console.time('init');
 
-
-
+const electron = require('electron');
 const {app, BrowserWindow, Menu, protocol, ipcMain} = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
@@ -42,17 +41,31 @@ function sendStatusToWindow(text) {
   win.webContents.send('message', text);
 }
 
-function createDefaultWindow() {
-  win = new BrowserWindow({
-    width:800,
-    height: 600,
-    minWidth: 600,
-    minHeight: 400,
-    // 'auto-hide-menu-bar': true,
+
+
+function createDefaultWindow(_width, _height) {
+
+  console.log(_width);
+  console.log(_height);
+
+  win = new BrowserWindow({ 
+    backgroundColor: '#ffffff',
+    // width:800,
+    // height: 650,
+    show: false,
+    minWidth: 800,
+    minHeight: 650,
+    // autoHideMenuBar : true,
     center: true
   });
+ 
+  win.maximize(true);
+  win.once('ready-to-show', () => {
+    
+    win.show();
+  });
 
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
 
   win.on('closed', () => {
     win = null;
@@ -60,9 +73,9 @@ function createDefaultWindow() {
 
   win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
   console.log(app.getVersion());
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
-
+  
   // this dialoge open the file explorer
   // dialog.showOpenDialog({ 
   //   properties: [ 'openFile' ] }, function ( filename ) {
@@ -92,9 +105,6 @@ function createDefaultWindow() {
 
 
 
-
-
-
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
 })
@@ -116,7 +126,8 @@ autoUpdater.on('update-downloaded', (ev, info) => {
 
 
 app.on('ready', function() {
-  createDefaultWindow();
+  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
+  createDefaultWindow(width, height);
 });
 
 app.on('window-all-closed', () => {
@@ -154,7 +165,6 @@ ipcMain.on('download', (event, arg) => {
   }
 
 });
-
 
 autoUpdater.on('update-not-available', (ev, info) => {
 });
@@ -200,15 +210,6 @@ app.on('ready', function()  {
 
 
 
-
-
-
-
-
-
-
-
-
 // ################# ipcMain #################
 
 
@@ -237,9 +238,6 @@ ipcMain.on('start-the-instalation', (event, arg) => {
 setTimeout(function() {
   
 }, 5000);
-
-
-
 
 
 console.timeEnd('init');
