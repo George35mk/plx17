@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>2.0.7</title>
+  <title>2.1.7</title>
 
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
@@ -71,7 +71,7 @@
     <div class="row" style="margin: 0px;">
 
       <div id="left_container" class="col" style="text-align: left">
-        <h1 id="version_title" class="purple-text">v2.0.7</h1>
+        <h1 id="version_title" class="purple-text">v2.1.7</h1>
         <a href="#" id="start_the_instalation" class="white-text btn waves-effect waves-light">INSTALL</a>
         <a href="#" id="download" style="min-width: 121px; min-height:36px;" class="white-text btn waves-effect waves-light purple">DOWNLOAD</a>
         <!-- bot nav -->
@@ -391,7 +391,7 @@
           <div id="anoigomena_content" class="active system_type">
 
 
-            <div class="row" style="">
+            <div class="row systems_content_row" style="">
               <div id="box_select_anoigomena_seira" class="input-field col s6 fixed_seira">
                 <select id="select_anoigomena_seira" onchange="controler_select_anoigomena_seira(this.id);">
                   <option value="500" selected>500</option>
@@ -414,7 +414,7 @@
             </div>
 
 
-            <div id="portes" class="hidden anoigomenes_kataskeves" style="padding-top: 50px;">
+            <div id="portes" class="hidden anoigomenes_kataskeves" style="">
 
               <div class="row" style="">
 
@@ -465,7 +465,7 @@
 
             </div>
 
-            <div id="parathira" class=" anoigomenes_kataskeves" style="padding-top: 50px;">
+            <div id="parathira" class=" anoigomenes_kataskeves" style="">
 
 
               <!-- tzamilikia-->
@@ -586,7 +586,7 @@
           <!-- ptysomena -->
           <div id="ptysomena_content" class="hidden system_type">
 
-            <div class="row">
+            <div class="row systems_content_row" style="">
               <div id="box_select_ptysomena_seira" class="input-field col s6">
                 <select id="select_ptysomena_seira" onchange="controler_select_ptysomena_seira(this.id);">
                   <option value="s_500" selected>S.500</option>
@@ -648,7 +648,7 @@
           <div id="syromena_content" class="hidden system_type">
 
             <!-- select options gia seiromena -->
-            <div class="row">
+            <div class="row systems_content_row">
               <div id="box_select_seiromena_seira" class="input-field col s6">
                 <select id="select_seiromena_seira" onchange="controler_select_seiromena_seira(this.id);">
                   <option value="100" selected>100</option>
@@ -930,7 +930,7 @@
 
           <div id="anasyromena_content" class="hidden system_type">
 
-            <div class="row">
+            <div class="row systems_content_row">
               <div id="box_select_anasyromena_seira" class="input-field col s6">
                 <select id="select_anasyromena_seira" onchange="controler_select_anasyromena_seira(this.id);">
                   <option value="3500" selected>3500</option>
@@ -1016,6 +1016,7 @@
   <script src="./Pages/authentication.js" type="text/javascript"></script>
   <script src="./Pages/welcome_page.js" type="text/javascript"></script>
   <script src="./Pages/login.js" type="text/javascript"></script>
+  <script src="./Pages/select.js" type="text/javascript"></script>
   <script src="./Pages/index.js" type="text/javascript"></script>
 </body>
 

@@ -140,6 +140,8 @@ body {
 /* /////////////////////////////// main_content ///////////////////////////////  */
 
 
+/* ////////////////// SELECT TAB ///////////////////  */
+
 #top_menu {
   position: fixed;
   right: 10px;
@@ -215,10 +217,23 @@ body {
 
 
 #anoigomena_content {
-  padding-top: 120px;
+  padding-top: 170px;
 }
 
-#anoigomena_content > .row{
+#ptysomena_content {
+  padding-top: 170px;
+}
+
+#syromena_content {
+  padding-top: 170px;
+}
+
+#anasyromena_content {
+  padding-top: 170px;
+}
+
+
+.systems_content_row{
   z-index: 4; 
   position: fixed; 
   left: 201px;
@@ -228,11 +243,3 @@ body {
   height: 100px;
   padding-top: 30px;
 }
-
-
-
-/*#parathira{
-  overflow:auto;
-  height: calc(100vh - 100px);
-  background: red;
-}*/
