@@ -55,7 +55,7 @@ function createDefaultWindow(_width, _height) {
     show: false,
     minWidth: 800,
     minHeight: 650,
-    autoHideMenuBar : true,
+    // autoHideMenuBar : true,
     center: true
   });
  
@@ -73,7 +73,7 @@ function createDefaultWindow(_width, _height) {
 
   win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
   console.log(app.getVersion());
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
   
   // this dialoge open the file explorer

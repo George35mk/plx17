@@ -64,3 +64,22 @@ mod.init($);
 $( "#push" ).click(function() {
     mod.alertFromModule();
 });
+
+
+
+
+
+
+// this code fix the canvas 4px shit padding or margin
+$("#tab_home").click(function () {
+    $("body").css("overflow", "auto");
+});
+
+$("#tab_design").click(function () {
+    // alert('The overflow on desighn tab is hidden ok ?');
+    $("body").css("overflow", "hidden");
+});
+
+$("#tab_exports").click(function () {
+    $("body").css("overflow", "auto");
+});

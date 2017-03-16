@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>2.0.6</title>
+  <title>2.0.7</title>
 
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
@@ -27,6 +27,9 @@
 
   <!-- Materialize + Material icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+
+
   <link rel="stylesheet" href="Assets/Libs/Materialize/css/materialize.min.css">
   <script src="Assets/Libs/Materialize/js/materialize.js" type="text/javascript"></script>
 
@@ -40,12 +43,13 @@
   <script src="Assets/Libs/Threejs/CSG.js" type="text/javascript"></script>
   <script src="Assets/Libs/StatsJS/Stats.js" type="text/javascript"></script>
   <script src="Assets/Libs/DatGUI/dat.gui.min.js" type="text/javascript"></script>
-  <!--<script src="../../assets/libs/DatGUI/dat.gui.css" type="text/javascript"></script>-->
+  <!--<script src="../../Assets/libs/DatGUI/dat.gui.css" type="text/javascript"></script>-->
 
 
 
 
 
+  <link rel="stylesheet" href="Pages/welcome_page.css">
   <link rel="stylesheet" href="main.css">
 
 </head>
@@ -56,25 +60,23 @@
 
 
   <!-- Authentication content Login and SingUp forms -->
-  <div id="welcome_content" class="">
+  <div id="login_content" class="">
 
-    <div class="row" style="margin-bottom: 0px;">
+    <!--<div class="row" style="margin-bottom: 0px;">
       <div class="progress " style="margin: 0px; position: fixed; background: transparent">
         <div class="indeterminate" style="background: #ffc107"></div>
       </div>
-    </div>
+    </div>-->
 
     <div class="row" style="margin: 0px;">
 
       <div id="left_container" class="col" style="text-align: left">
-
-        <h1 class="purple-text" >v2.0.6</h1>
-
+        <h1 id="version_title" class="purple-text">v2.0.7</h1>
         <a href="#" id="start_the_instalation" class="white-text btn waves-effect waves-light">INSTALL</a>
         <a href="#" id="download" style="min-width: 121px; min-height:36px;" class="white-text btn waves-effect waves-light purple">DOWNLOAD</a>
         <!-- bot nav -->
-        <div class="row" style="position: absolute; bottom: 10px;">
-          <!-- social icons -->
+        <!-- social icons -->
+        <!--<div class="row" style="position: absolute; bottom: 10px;">
           <div class="col s12">
             <img id="go_to_google" style="margin-right: 10px;" width="40" height="40" onclick="redirectToGooglePage(this.id);" src="Assets/icons/social_icons/001-google-plus.svg"
               alt="">
@@ -86,12 +88,12 @@
               alt="">
           </div>
           <div class="col s6"></div>
-        </div>
+        </div>-->
       </div>
 
       <div id="right_container" class="col">
 
-        
+
 
         <div class="row">
           <div class="" style="text-align: left;">
@@ -106,7 +108,7 @@
         </div>-->
 
 
-       
+
 
 
 
@@ -159,7 +161,7 @@
                 <a href="#" id="btn_create_ucount" class="" style="color: white; margin-left: 20px;">Δέν έχεις λογαριάσμο ?</a>
               </div>
 
-              
+
 
             </div>
 
@@ -221,7 +223,7 @@
 
               <br>
               <div class="row">
-                
+
                 <div class="col s6">
                   <a id="btn_sign_in" class="waves-effect waves-light btn light-blue darken-4" style="color: white; margin-left: 10px; margin-top: 10px;">SING IN</a>
                 </div>
@@ -253,12 +255,766 @@
 
 
 
-  
+
+
+
+  <div id="welcome_content" class="row hidden" style="margin: 0px; padding: 0px;">
+    <div id="projects_content_grid" class="col">
+      <div class="row">
+        <div class="col blue project_box" style=""></div>
+        <div class="col blue project_box" style=""></div>
+        <div class="col blue project_box" style=""></div>
+      </div>
+
+      <div class="divider"></div>
+    </div>
+    <div id="projects_content_list" class="col">
+
+      <p id="curent_user" class="truncate" style="font-size: 18px; margin-left: 10px; color: blue;"></p>
+
+      <!--<p style="font-size: 18px; margin-left: 10px; margin-top: 30px;">Recent Projects</p>-->
+
+      <div class="" style="margin-top: 30px; margin-left: 5px;">
+        <div><i class="material-icons" style="vertical-align: middle; color: dodgerblue;">add</i>
+          <a id="btn_show_new_project_modal" class="modal-trigger" href="#modal1" style="vertical-align: bottom; cursor: pointer;">New</a>
+        </div>
+
+        <br>
+        <div class="divider"></div>
+
+        <div class="row collection" style="border: 0px;">
+          <ul id="ul_projects">
+
+
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- modal -->
+      <!-- Modal Trigger -->
+      <!--<a class="modal-trigger waves-effect waves-light btn" href="#modal1">Modal</a>-->
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal modal-fixed-footer" style="width: 400px; height: 300px; margin-top: 10%;">
+        <div class="modal-content">
+          <div class="row">
+            <div class="col">
+              <h4>Project Name</h4>
+            </div>
+            <div class="col">
+              <i class="material-icons modal-action modal-close md-40" style="position: absolute; right: 20px; cursor: pointer">clear</i>
+            </div>
+          </div>
+
+          <p>Δώσε ένα όνομα για το Project σου.</p>
+
+          <!-- input for project name -->
+          <div class="row">
+            <div class="col s12" style="padding: 0px;">
+              <div class="input-field inline" style="width: 100%;">
+                <input style="" id="txt_project_name" type="text" maxlength="40" data-length="40" class="validate">
+                <label style="" for="txt_project_name" data-error="wrong" data-success="right">Project name</label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <a id="add_new_project" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat blue" style="color: white; margin-left: 20px;">NEXT</a>
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red" style="color: white;">CANCEL</a>
+        </div>
+      </div>
+      <!-- /modal -->
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- top navigation menu -->
+  <div id="top_menu" class="hidden">
+    <a id="fast_menu" class="dropdown-button right" href="#" data-activates='dropdown1'><i class=" material-icons ">more_vert</i></a>
+    <ul id='dropdown1' class='dropdown-content' style="z-index: 2;">
+      <li><a id="simulate" href="#!">Profile</a></li>
+      <li><a href="#!">Options</a></li>
+      <li class="divider"></li>
+      <li><a id="btn_log_out" href="#!">Log Out</a></li>
+    </ul>
+  </div>
+
+  <div id="main_content" class="hidden">
+
+    <div id="tabs_container_list" class="col s12 main_navigation z-depth-2" style="min-width: 300px;  padding: 0px; margin: 0px;">
+      <ul class="tabs " style="height: 50px;">
+        <li id="tab_home" class="tab col s2 m2"><a class="active" href="#tab_home_content">Select</a></li>
+        <li id="tab_design" class="tab col s2 m2"><a href="#tab_design_content">Design</a></li>
+        <li id="tab_exports" class="tab col s2 m2"><a href="#tab_exports_content">Exports</a></li>
+      </ul>
+    </div>
+
+    <div id="tab_home_content" class=" col m12 active" style="padding: 0px;">
+
+      <div class="row s12" style="margin: 0px;">
+
+        <!-- alouminium categories -->
+
+        <!-- aloumium categories systems list -->
+        <div id="systems_categories" class="col s2" style="">
+          <!--<p style="font-size: 18px; margin-left: 20px;">System</p>-->
+          <p style="font-size: 18px; margin-left: 20px;">System</p>
+          <ul class="section table-of-contents" style="min-width: 180px;">
+            <li><a id="anoigomena" class="active sys_types" href="#">Ανοιγόμενα</a></li>
+            <li><a id="ptysomena" class="sys_types" href="#">Πτυσσόμενα</a></li>
+            <li><a id="syromena" class="sys_types" href="#">Συρόμενα</a></li>
+            <li><a id="anasyromena" class="sys_types" href="#">Ανασυρόμενα - Ανακλινόμενα</a></li>
+            <li><a id="systimata_rolou" class="sys_types" href="#">Συστήματα Ρολού</a></li>
+            <li><a id="systimata_sitas" class="sys_types" href="#">Συστήματα Σήτας</a></li>
+            <li><a id="eidikes_kataskeves" class="sys_types" href="#" class="">Ειδικές Κατασκευές</a></li>
+
+            <br>
+            <div class="divider"></div>
+            <br>
+
+            <li><a id="kagkela" class="sys_types" href="#" class="">Κάγκελα</a></li>
+            <li><a id="gkarazoportes" class="sys_types" href="#" class="">Γκαραζόπορτες</a></li>
+          </ul>
+        </div>
+
+        <!-- aloumium categories systems content -->
+        <div id="systems_categories_content" class="col s8" style="">
+
+
+          <div id="anoigomena_content" class="active system_type">
+
+
+            <div class="row" style="">
+              <div id="box_select_anoigomena_seira" class="input-field col s6 fixed_seira">
+                <select id="select_anoigomena_seira" onchange="controler_select_anoigomena_seira(this.id);">
+                  <option value="500" selected>500</option>
+                  <option value="5000">5000</option>
+                  <option value="5500">5500</option>
+                  <option value="A40">A40</option>
+                </select>
+                <label>Select Seira</label>
+              </div>
+
+              <div id="box_select_anoigomena_type" class="input-field col s6 fixed_type">
+                <select id="select_anoigomena_type" onchange="controler_select_anoigomena_type(this.id);">
+                  <option value="portes" >Πορτες</option>
+                  <option value="parathira" selected>Παράθυρα</option>
+                  <option value="mpalkonoportes">Μπαλκονόπορτες</option>
+                  <option value="stathera">Σταθερά Υαλοστάσια</option>
+                </select>
+                <label>ΤΥΠΟΛΟΓΙΕΣ ΚΑΤΑΣΚΕΥΩΝ</label>
+              </div>
+            </div>
+
+
+            <div id="portes" class="hidden anoigomenes_kataskeves" style="padding-top: 50px;">
+
+              <div class="row" style="">
+
+                <!-- porta monofyli -->
+                <div class="card col" style="">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="parathiro_monofyllo" class=" img_trigers" style="width: 100px; height: 220px; margin: 0px auto; margin-top: 10px;"
+                      src="Assets/img/systems_img/anoigomena/portes/porta.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Πόρτα<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Πόρτα<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this </p>
+                  </div>
+                </div>
+
+                <div class="card col" style="">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="parathiro_monofyllo" class=" img_trigers" style="width: 166px; height: 220px; margin: 0px auto; margin-top: 10px; margin-left: 10px; margin-right: 10px;"
+                      src="Assets/img/systems_img/anoigomena/portes/porta_stathero_deksia.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Με Σταθερό<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Πόρτα με ...<i class="material-icons right">close</i></span>
+                    <p>Πόρτα με σταθερό δεξιά ή αριστερά</p>
+                  </div>
+                </div>
+
+                <div class="card col" style="">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="parathiro_monofyllo" class=" img_trigers" style="width: 226px; height: 220px; margin: 0px auto; margin-top: 10px; margin-left: 10px;margin-right: 10px;"
+                      src="Assets/img/systems_img/anoigomena/portes/porta_stath_deksia_arist.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Πόρτα με σταθερό<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Πόρτα με σταθερό<i class="material-icons right">close</i></span>
+                    <p>Πόρτα με σταθερό αριστερά και δεξιά</p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div id="parathira" class=" anoigomenes_kataskeves" style="padding-top: 50px;">
+
+
+              <!-- tzamilikia-->
+              <div class="row" style="">
+
+                <!-- monofyllo tzamiliki -->
+                <div class="card col" style="margin-right: 10px; border: 1px solid #0089ec;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="parath_monofylo_tzami" class=" img_trigers" style="width: 150px; height: 170px; margin: 0px auto; margin-top: 10px;"
+                      src="Assets/img/systems_img/anoigomena/tzamilikia/1_f_tz.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4 ">Φύλλο.Τζαμιλίκι<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Μονόφυλλο.<i class="material-icons right">close</i></span>
+                    <p>Παράθυρο μονόφυλλο κάσα + φύλλο για τζάμι</p>
+                  </div>
+                </div>
+
+                <!-- monofyllo patzouri -->
+                <div class="card col" style=" margin-right: 10px; border: 1px solid #0089ec;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="parath_monofylo_patzouri" class=" img_trigers" style="width: 150px; height: 170px; margin: 0px auto; margin-top: 10px;"
+                      src="Assets/img/systems_img/anoigomena/patzouria/1_f_patz.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Φύλλο. Πατζούρι<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Μονόφυλλο<i class="material-icons right">close</i></span>
+                    <p>Παράθυρο μονόφυλλο κάσα + φύλλο για πατζούρι</p>
+                  </div>
+                </div>
+
+                <!-- monofyllo tzami + patzouri eniea kasa -->
+                <div class="card col" style="margin-right: 10px; border: 1px solid #0089ec;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="parathiro_eniea_tzami_patazouri" class=" img_trigers" style="width: 150px; height: 170px; margin: 0px auto; margin-top: 10px;"
+                      src="Assets/img/systems_img/anoigomena/tzam-patz/1_f_eniea.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Κάσα. Ενιαία<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Παραθυρο<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this </p>
+                  </div>
+                </div>
+
+              </div>
+
+              <p>Παράθυρα Με Χωρίσματα</p>
+              <div class="divider"></div>
+
+            </div>
+
+            <div id="mpalkonoportes" class="hidden anoigomenes_kataskeves">
+              <div class="row">
+
+                <div class="card col" style="">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="mpalkonoporta_tzami" class=" img_trigers" style="width: 160px; height: 250px; margin: 0px auto; margin-top: 10px;"
+                      src="Assets/img/systems_img/anoigomena/mpalkonoportes/1_f_mpal_tzam.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4 ">Φ. Τζάμιλίκη.<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Φ. Τζάμι.<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this </p>
+                  </div>
+                </div>
+
+                <div class="card col" style="">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="mpalkonoporta_patz" class=" img_trigers" style="width: 160px; height: 250px;  margin: 0px auto; margin-top: 10px;"
+                      src="Assets/img/systems_img/anoigomena/mpalkonoportes/1_f_mpal_patz.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Φ. Πατζούρι.<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Φ. Πατζούρι.<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this </p>
+                  </div>
+                </div>
+
+                <div class="card col" style="">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="mpalkonoporta_tzam_patz" class=" img_trigers" style="width: 160px; height: 250px;  margin: 0px auto; margin-top: 10px;"
+                      src="Assets/img/systems_img/anoigomena/mpalkonoportes/1_f_mpal_tzam_patz.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Ενιαία Κάσα<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Φ. Τζάμι.<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this </p>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+
+            <div id="stathera" class="hidden anoigomenes_kataskeves">
+              <div class="row_" style="width: 500px; margin: 30px auto;">
+
+                <p> Σταθερά Υαλοστάσια</p>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ptysomena -->
+          <div id="ptysomena_content" class="hidden system_type">
+
+            <div class="row">
+              <div id="box_select_ptysomena_seira" class="input-field col s6">
+                <select id="select_ptysomena_seira" onchange="controler_select_ptysomena_seira(this.id);">
+                  <option value="s_500" selected>S.500</option>
+                  <option value="s_5000">S.5000</option>
+                  <option value="s_5500">S.5500</option>
+                </select>
+                <label>Select Seira</label>
+              </div>
+
+              <div id="box_select_ptysomena_type" class="input-field col s6">
+                <select id="select_ptysomena_type" onchange="controler_select_ptysomena_type(this.id);">
+                  <option value="ptysomena" selected>Πτυσόμενα</option>
+                </select>
+                <label>ΤΥΠΟΛΟΓΙΕΣ ΚΑΤΑΣΚΕΥΩΝ</label>
+              </div>
+            </div>
+
+
+            <div id="ptysomena" class=" ptysomena_kataskeves">
+
+              <div class="row" style="">
+
+                <!-- porta ptysomeni trifili -->
+                <div class="card col" style="">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="parathiro_monofyllo" class=" img_trigers" style="width: 322px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/ptysomena/ptysomeno_3_f.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Πόρτα<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Πόρτα<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this </p>
+                  </div>
+                </div>
+
+                <!-- porta ptysomeni pentafili -->
+                <div class="card col" style="">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="parathiro_monofyllo" class=" img_trigers" style="width: 524px; margin: 0px auto; margin-top: 10px; margin-left: 10px; margin-right: 10px;"
+                      src="Assets/img/systems_img/ptysomena/ptysomeno_5_f.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Με Σταθερό<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Πόρτα με ...<i class="material-icons right">close</i></span>
+                    <p>Πόρτα με σταθερό δεξιά ή αριστερά</p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- syromena content-->
+          <div id="syromena_content" class="hidden system_type">
+
+            <!-- select options gia seiromena -->
+            <div class="row">
+              <div id="box_select_seiromena_seira" class="input-field col s6">
+                <select id="select_seiromena_seira" onchange="controler_select_seiromena_seira(this.id);">
+                  <option value="100" selected>100</option>
+                  <option value="2000">2000</option>
+                  <option value="2500">2500</option>
+                  <option value="6000">6000</option>
+                  <option value="10000">10000</option>
+                </select>
+                <label>Select Seira</label>
+              </div>
+
+              <div id="box_select_seiromena_type" class="input-field col s6">
+                <select id="select_seiromena_type" onchange="controler_select_seiromena_type(this.id);">
+                  <option value="epalila" selected>Επάλληλα</option>
+                  <option value="xonefta">Χωνευτά</option>
+                </select>
+                <label>ΤΥΠΟΛΟΓΙΕΣ ΚΑΤΑΣΚΕΥΩΝ</label>
+              </div>
+            </div>
+
+            <div id="epalila" class=" seiromenes_kataskeves">
+
+              <div class="row" style="">
+
+                <!-- diplos odigos difilo tzami -->
+                <div class="card col" style=" margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 170px; height: 170px; margin: 0px auto; margin-top: 10px; margin-left: 10px; margin-right: 10px;"
+                      src="Assets/img/systems_img/seiromena/epalila/diplos_odigos_tz.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Διπλος Οδηγ.<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Διπλος Οδηγ.<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 171px; height: 20px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/epalila/diplos_odigos_tz_katopsi.svg">
+                    <p>Επάληλο με διπλό οδηγό, διφυλο τζαμιλίκι</p>
+                  </div>
+                </div>
+
+                <!-- diplos odigos tetrafilo tzami -->
+                <div class="card col" style="margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 320px; height: 170px; margin: 0px auto; margin-top: 10px; margin-left: 10px; margin-right: 10px;"
+                      src="Assets/img/systems_img/seiromena/epalila/diplos_odigos_tz_4_f_tz.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Διπλος Οδηγός Τετράφυλο<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Διπλος Οδηγός Τετράφυλο<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 320px; height: 20px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/epalila/diplos_odigos_tz_4_f_tz_katopsi.svg">
+                    <p>Επάληλο με διπλό οδηγό, τετράφυλο τζαμιλίκι</p>
+                  </div>
+                </div>
+
+                <!-- triplos odigos eksafilo tzami -->
+                <div class="card col " style="margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 460px; height: 169px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/epalila/triplos_odigos_6_f_tz.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Τριπλός Οδηγός 6 φύλλα.<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Τριπλός Οδηγός 6 φύλλα.<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 435px; height: 30px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/epalila/triplos_odigos_6_f_tz_katopsi.svg">
+                    <p>Επάληλο με τριπλό οδηγό, 6 φύλλα τζαμιλίκι</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <!-- triplos odigos trifilo tzami -->
+                <div class="card col" style="margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 240px; height: 169px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/epalila/triplos_odigos_3_f_tz.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Τριπλός Οδηγός 3 φύλ.<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Τριπλός Οδηγός 3 φύλ.<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 240px; height: 30px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/epalila/triplos_odigos_3_f_tz_katopsi.svg">
+                    <p>Επάληλο με τριπλό οδηγό, 3 φύλλα τζαμιλίκι</p>
+                  </div>
+                </div>
+
+
+                <!-- triplos odigos 3 filla tzami sita -->
+                <div class="card col" style="margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 170px; height: 169px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/epalila/triplos_odigos_3_f_tz_sita.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Τζάμι + Σίτα.<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Τζάμι + Σίτα.<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 170px; height: 30px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/epalila/triplos_odigos_3_f_tz_sita_katopsi.svg">
+                    <p>Τριπλός Οδηγός, 2 φ Τζάμι, 1 φ Σίτα.</p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div id="xonefta" class="hidden seiromenes_kataskeves">
+
+              <div class="row" style="">
+                <p>Διπλή Κατεύθυνση</p>
+
+                <!-- monos odigos difilo tzami -->
+                <div class="card col" style=" margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 321px; height: 170px; margin: 0px auto; margin-top: 10px; margin-left: 10px; margin-right: 10px;"
+                      src="Assets/img/systems_img/seiromena/xonefta/monos_odigos_2_f_tz.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Χωνευτό με μονό οδηγό.<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Χωνευτό με μονό οδηγό.<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 100%; height: 30px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/monos_odigos_2_f_tz_katopsi.svg">
+                    <!--<p>Χωνευτό με μονό οδηγό, μπωρεί να πάρει τζάμι ή σίτα ή πατζούρι</p>-->
+                  </div>
+                </div>
+
+                <!-- diplos odigos tetrafilo tzami i patzouri i sita-->
+                <div class="card col" style="margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 321px; height: 170px; margin: 0px auto; margin-top: 10px; margin-left: 10px; margin-right: 10px;"
+                      src="Assets/img/systems_img/seiromena/xonefta/diplos_odigos_4_f_tz_patz.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Διπλος Οδηγ. τζάμι-Πατζούρι<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Διπλος Οδηγ. τζάμι-Πατζούρι<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 100%; height: 35px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/diplos_odigos_4_f_tz_patz_katopsi.svg">
+                    <!--<p>Χωνευτό με διπλο Οδηγ. τζάμι-Πατζούρι</p>-->
+                  </div>
+                </div>
+
+                <!-- triplos odigos eksafilo tzami -->
+                <div class="card col " style="margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 321px; height: 170px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/diplos_odigos_tzami_sita.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Διπλος Οδηγ. τζάμι-σίτα.<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Διπλος Οδηγ. τζάμι-σίτα.<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 100%; height: 35px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/diplos_odigos_tzami_sita_katopsi.svg">
+                    <!--<p>Χωνευτό με διπλο Οδηγ. τζάμι-σίτα</p>-->
+                  </div>
+                </div>
+
+                <!-- triplos odigos eksafilo tzami -->
+                <div class="card col " style="margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 321px; height: 170px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/triplos_odigos_tz_sita_patz.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Τριπλός Οδηγός τζάμι-σίτα-πατζούρι.<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Τριπλός Οδηγός τζάμι-σίτα-πατζούρι.<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 100%; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/triplos_odigos_tz_sita_patz_katopsi.svg">
+                    <!--<p>Χωνευτό με τριπλό Οδηγ. τζάμι-σίτα-πατζούρι</p>-->
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <br>
+                <p>Μονή Κατεύθυνση</p>
+                <div class="divider"></div>
+                <br>
+
+                <!-- monos odigos eksafilo tzami -->
+                <div class="card col " style="margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 321px; height: 170px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/monis_katefthinsis/monos_odigos_tz_klini_deksia.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Μονός Οδηγός τζάμι η σίτα<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Μονός Οδηγός τζάμι-σίτα.<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 100%; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/monis_katefthinsis/monos_odigos_tz_klini_deksia_katopsi.svg">
+                    <p>Χωνευτό με Μονός Οδηγ. τζάμι-σίτα</p>
+                  </div>
+                </div>
+
+                <!-- monos odigos eksafilo tzami -->
+                <div class="card col " style="margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 321px; height: 170px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/monis_katefthinsis/diplos_odigos_tz_patz_klini_deksia.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Διπλος Οδηγός Τζαμι Πατζούρι<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Διπλος Οδηγός Τζαμι Πατζούρι.<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 100%; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/monis_katefthinsis/diplos_odigos_tz_patz_klini_deksia_katopsi.svg">
+                    <!--<p>Χωνευτό με Μονός Οδηγ. τζάμι-σίτα</p>-->
+                  </div>
+                </div>
+
+                <!-- monos odigos eksafilo tzami -->
+                <div class="card col " style="margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 321px; height: 170px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/monis_katefthinsis/diplos_odigos_tz_sita_klini_deksia.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Διπλος Οδηγός τζάμι η σίτα<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Διπλος Οδηγός τζάμι-σίτα.<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 100%; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/monis_katefthinsis/diplos_odigos_tz_patz_klini_deksia_katopsi.svg">
+                    <!--<p>Χωνευτό με Μονός Οδηγ. τζάμι-σίτα</p>-->
+                  </div>
+                </div>
+
+                <!-- monos odigos eksafilo tzami -->
+                <div class="card col " style="margin-right: 10px;">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="" class=" img_trigers" style="width: 321px; height: 170px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/monis_katefthinsis/triplos_odigos_tz_sita_patz_klini_deksia.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Τριπλός Οδηγός τζάμι-σίτα-πατζούρι<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Τριπλός Οδηγός τζάμι-σίτα-πατζούρι.<i class="material-icons right">close</i></span>
+                    <br>
+                    <span>Κάτοψη</span>
+                    <img id="" class=" img_trigers" style="width: 100%;height: 100px; margin: 0px auto; margin-top: 10px;" src="Assets/img/systems_img/seiromena/xonefta/monis_katefthinsis/triplos_odigos_tz_sita_patz_klini_deksia_katopsi.svg">
+                    <!--<p>Χωνευτό με Μονός Οδηγ. τζάμι-σίτα</p>-->
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+          <div id="anasyromena_content" class="hidden system_type">
+
+            <div class="row">
+              <div id="box_select_anasyromena_seira" class="input-field col s6">
+                <select id="select_anasyromena_seira" onchange="controler_select_anasyromena_seira(this.id);">
+                  <option value="3500" selected>3500</option>
+                </select>
+                <label>Select Seira</label>
+              </div>
+
+              <div id="box_select_anasyromena_type" class="input-field col s6">
+                <select id="select_anasyromena_type" onchange="controler_select_anasyromena_type(this.id);">
+                  <option value="anasyromena" selected>Ανασυρόμενα</option>
+                </select>
+                <label>ΤΥΠΟΛΟΓΙΕΣ ΚΑΤΑΣΚΕΥΩΝ</label>
+              </div>
+            </div>
+
+
+            <div id="anasyromena" class=" ptysomena_kataskeves">
+
+              <div class="row" style="">
+
+                <!-- porta ptysomeni trifili -->
+                <div class="card col" style="">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="parathiro_monofyllo" class=" img_trigers" style="width: 200px; height: 200px; margin: 0px auto; margin-top: 10px;"
+                      src="Assets/img/systems_img/anasyromena/anasyromeno_2_f.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Απλό<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Ανασυρόμενο<i class="material-icons right">close</i></span>
+                    <p>Ανασυρόμενο απλό χωρίς Χωρίσματα</p>
+                  </div>
+                </div>
+
+                <!-- porta ptysomeni pentafili -->
+                <div class="card col" style="">
+                  <div class="card-image waves-effect waves-block waves-purple">
+                    <img id="parathiro_monofyllo" class=" img_trigers" style="width: 200px; height: 200px; margin: 0px auto; margin-top: 10px; margin-left: 10px; margin-right: 10px;"
+                      src="Assets/img/systems_img/anasyromena/anasyromeno_2_f_me_xorisma.svg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Με Χώρισμα<i class="material-icons right">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4">Με Χώρισμα<i class="material-icons right">close</i></span>
+                    <p>Ανασυρόμενο απλό μέ Χωρίσματα</p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div id="systimata_rolou_content" class="hidden system_type">Συστήματα Ρολού</div>
+          <div id="systimata_sitas_content" class="hidden system_type">Συστήματα Σήτας</div>
+          <div id="eidikes_kataskeves_content" class="hidden system_type">Ειδικές Κατασκευές</div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="tab_design_content" class=" col m12 active  padding_no">
+      fsdfsdfds4343
+    </div>
+
+    <div id="tab_exports_content" class=" col m12 active  padding_no">
+      fsdfsdfds646
+    </div>
+
+  </div>
+
 
 
 
   <script src="./Pages/updater.js" type="text/javascript"></script>
   <script src="./Pages/authentication.js" type="text/javascript"></script>
+  <script src="./Pages/welcome_page.js" type="text/javascript"></script>
   <script src="./Pages/login.js" type="text/javascript"></script>
   <script src="./Pages/index.js" type="text/javascript"></script>
 </body>
