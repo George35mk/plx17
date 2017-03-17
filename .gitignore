@@ -1,7 +1,7 @@
 /node_modules
-/dist/
+/dist/*
 yarn.lock
 /npm-debug.log
-/.vscode
-/Assets
-/cert
+/.vscode/*
+/Assets/*
+/cert/*
