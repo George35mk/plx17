@@ -18,7 +18,7 @@ $("#btn_log_in").click(function () {
     //   alert('you are log in');
 
   $("#login_content").hide();
-//   $("#top_menu").show();
+  $("#top_menu").show();
   $("#welcome_content").show();
 
 

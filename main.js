@@ -225,7 +225,7 @@ function sendMsg2Render (_msg) {
 
 
 
-
+// ena to chanel exei minima 1 vges ap to app kai kane download
 ipcMain.on('start-the-instalation', (event, arg) => {  
   // console.log(arg);
   if(arg == 1){

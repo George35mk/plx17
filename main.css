@@ -41,6 +41,13 @@ body {
   display: none;
 }
 
+.card .card-content {
+    /*padding: 10px;*/
+}
+
+.card .card-content > span{
+    font-size: 18px;
+}
 
 
 
@@ -140,10 +147,12 @@ body {
 /* /////////////////////////////// main_content ///////////////////////////////  */
 
 
+/* ////////////////// SELECT TAB ///////////////////  */
+
 #top_menu {
   position: fixed;
   right: 10px;
-  z-index: 3;
+  z-index: 11;
   color: black;
   top: 10px;
 }
@@ -215,10 +224,23 @@ body {
 
 
 #anoigomena_content {
-  padding-top: 120px;
+  padding-top: 170px;
 }
 
-#anoigomena_content > .row{
+#ptysomena_content {
+  padding-top: 170px;
+}
+
+#syromena_content {
+  padding-top: 170px;
+}
+
+#anasyromena_content {
+  padding-top: 170px;
+}
+
+
+.systems_content_row{
   z-index: 4; 
   position: fixed; 
   left: 201px;
@@ -229,10 +251,14 @@ body {
   padding-top: 30px;
 }
 
+.anoigomenes_kataskeves > .row > .card{
+  margin-right: 10px; border: 1px solid #0089ec;
+}
 
+.ptysomena_kataskeves > .row > .card{
+  margin-right: 10px; border: 1px solid #0089ec;
+}
 
-/*#parathira{
-  overflow:auto;
-  height: calc(100vh - 100px);
-  background: red;
-}*/
+.seiromenes_kataskeves > .row > .card{
+  margin-right: 10px; border: 1px solid #0089ec;
+}
